@@ -16,10 +16,6 @@
 '''
 # Then use it in the. vue file:
 
-'''VUE
-
 <template>
   <r-button>按钮</r-button>
 </template>
-
-'''
