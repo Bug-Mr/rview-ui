@@ -2,12 +2,20 @@
   "easycom": {
     "autoscan": true,
     "custom": {
-      "^r-(.*)": "@/components/r-$1/index.vue"
+      "^r-(.*)": "@/components/r-$1/index.vue",
+      "^cn-(.*)": "@/pages/components/cn-$1/index.vue"
     }
   },
   "pages": [
     {
       "path": "pages/index/index",
+      "style": {
+        "navigationBarTitleText": "uni-app",
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/input/index",
       "style": {
         "navigationBarTitleText": "uni-app"
       }
