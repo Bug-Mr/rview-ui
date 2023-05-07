@@ -16,20 +16,22 @@
 ```
 
 ## API
+
 ## 属性/方法
+
 ### r-button Props
-| 属性名        |    类型       |  默认值| 说明                                     |
-| ------------- | :-----------: | ----: | :------------------------------:        | 
-| col 3 is      | right-aligned | $1600 |    是否无需背景颜色，为 true 时，背景颜色将变为文字的字体颜色                                   |
-| col 2 is      |   centered    |   $12 |    ww                                    |
-| zebra stripes |   are neat    |    $1 |         ee                                 |
+
+| 属性名        |     类型      | 默认值 |                            说明                            |
+| ------------- | :-----------: | -----: | :--------------------------------------------------------: |
+| col 3 is      | right-aligned |  $1600 | 是否无需背景颜色，为 true 时，背景颜色将变为文字的字体颜色 |
+| col 2 is      |   centered    |    $12 |                             ww                             |
+| zebra stripes |   are neat    |     $1 |                             ee                             |
 
 ### r-button Events
 
-|事件名	|事件说明			|返回参数	|
-|:-:	|:-:				|:-:		|
-|@click	|点击 Badge 触发事件| -			|
-
+| 事件名 |      事件说明       | 返回参数 |
+| :----: | :-----------------: | :------: |
+| @click | 点击 Badge 触发事件 |    -     |
 
 ## 示例
 
@@ -57,6 +59,10 @@
 </template>
 ```
 
-<iframe id="iframeCon" src="http://localhost:3995/" width="379px" height="812px" class="iframeCon-box"></iframe>
-
+<iframe id="iframeCon" :src="getBaseUrl()" width="379px" height="812px" class="iframeCon-box"></iframe>
 </div>
+
+<script setup lang="ts">
+import {getBaseUrl} from "/utils/getBaseUrl"
+
+</script>
