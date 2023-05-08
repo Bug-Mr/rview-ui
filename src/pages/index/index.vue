@@ -1,6 +1,6 @@
 <template>
   <view>
-    <r-icon type="info-circle"></r-icon>
+    <r-icon type="arrow-left"></r-icon>
   </view>
 </template>
 

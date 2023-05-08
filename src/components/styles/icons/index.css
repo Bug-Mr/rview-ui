@@ -1,7 +1,8 @@
+@import "./iconfont.css";
 /* #ifndef APP-NVUE */
-@import "./rview-icon.css";
+@import "./iconfont.css";
 @font-face {
-  font-family: "ricon";
-  src: url("./rview-icon.ttf") format("truetype");
+  font-family: "iconfont";
+  src: url("iconfont.ttf?t=1647687441845") format("truetype");
 }
 /* #endif */

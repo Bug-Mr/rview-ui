@@ -10,29 +10,25 @@
     {
       "path": "pages/index/index",
       "style": {
-        "navigationBarTitleText": "uni-app",
-        "navigationStyle": "custom"
+        "navigationBarTitleText": "rview-ui"
       }
     },
     {
       "path": "pages/r-button/index",
       "style": {
-        "navigationBarTitleText": "uni-app",
-        "navigationStyle": "custom"
+        "navigationBarTitleText": "Button按钮"
       }
     },
     {
       "path": "pages/r-input/index",
       "style": {
-        "navigationBarTitleText": "uni-app",
-        "navigationStyle": "custom"
+        "navigationBarTitleText": "Input输入框"
       }
     },
     {
       "path": "pages/r-icon/index",
       "style": {
-        "navigationBarTitleText": "uni-app",
-        "navigationStyle": "custom"
+        "navigationBarTitleText": "Icon图标"
       }
     }
   ],

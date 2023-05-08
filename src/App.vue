@@ -11,4 +11,11 @@ onHide(() => {
   console.log("App Hide");
 });
 </script>
-<style></style>
+
+<style lang="scss">
+body {
+  &::-webkit-scrollbar {
+    display: none !important;
+  }
+}
+</style>

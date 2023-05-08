@@ -1,10 +1,5 @@
 <template>
-  <button
-    v-bind="$attrs"
-    class="r-button"
-    :class="className"
-    :disabled="disabled"
-  >
+  <button class="r-button" :class="className" :disabled="disabled">
     <slot></slot>
   </button>
 </template>
@@ -32,17 +27,13 @@ const props = defineProps({
 });
 const className = computed(() => {
   if (props.plain) {
-    return `r-button--plain r-button--plain--${
-      props.types || "default"
-    } r-button--size-${props.size || "default"} ${
-      props.round ? "r-button--round" : ""
-    } ${props.disabled && "r-button--disabled"}`;
+    return `r-button--plain r-button--plain--${props.types || "default"
+      } r-button--size-${props.size || "default"} ${props.round ? "r-button--round" : ""
+      } ${props.disabled && "r-button--disabled"}`;
   } else {
-    return `r-button--${props.types || "default"} r-button--size-${
-      props.size || "default"
-    } ${props.round ? "r-button--round" : ""} ${
-      props.disabled && "r-button--disabled"
-    }`;
+    return `r-button--${props.types || "default"} r-button--size-${props.size || "default"
+      } ${props.round ? "r-button--round" : ""} ${props.disabled && "r-button--disabled"
+      }`;
   }
 });
 function add() {
@@ -138,6 +129,7 @@ $r-color-default: #9c9c9c;
   &--round {
     border-radius: 40rpx;
   }
+
   &--disabled {
     opacity: 0.5;
     cursor: not-allowed;

@@ -36,7 +36,7 @@
 <script setup lang="ts"></script>
 ```
 
-<iframe id="iframeCon" :src="getBaseUrl()" width="379px" height="812px" class="iframeCon-box"></iframe>
+<iframe id="iframeCon" :src="getBaseUrl()" width="379px"  class="iframeCon-box"></iframe>
 </div>
 
 <script setup lang="ts">
