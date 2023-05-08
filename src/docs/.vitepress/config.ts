@@ -14,10 +14,11 @@ export const config: UserConfig = {
         },
         nav: [
             { text: '指南', link: '/guild/design' },
-            { text: '组件', link: '/component/button' }
+            { text: '组件', link: '/component/button/button' }
         ],
         socialLinks: [{ icon: 'github', link: 'https://github.com/Bug-Mr/rview-ui' }],
         sidebar: {
+
             "/guild/": [
                 {
                     text: "基础",
@@ -35,17 +36,35 @@ export const config: UserConfig = {
             ],
             '/component/': [
                 {
+                    text: 'Basic',
                     items: [
                         {
-                            text: 'Button',
-                            link: '/component/button'
+                            text: 'button',
+                            link: '/component/button/button'
+                        },
+                        {
+                            text: 'icon',
+                            link: '/component/icon/icon'
                         },
                         {
                             text: 'input',
-                            link: '/component/input'
+                            link: '/component/input/input'
                         },
                     ]
-                }
+                },
+                {
+                    text: 'Form',
+                    items: [
+                        {
+                            text: 'button',
+                            link: '/component/button/button'
+                        },
+                        {
+                            text: 'input',
+                            link: '/component/input/input'
+                        },
+                    ]
+                },
             ]
         },
     }

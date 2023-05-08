@@ -1,14 +1,18 @@
 <template>
-  <button v-bind="$attrs" class="r-button" :class="className" >
+  <button
+    v-bind="$attrs"
+    class="r-button"
+    :class="className"
+    :disabled="disabled"
+  >
     <slot></slot>
   </button>
 </template>
 
 <script lang="ts" setup>
-
-import { computed, PropType } from "vue"
+import { computed, PropType } from "vue";
 type Type = "primary" | "warning" | "success" | "Info";
-type Size = "large" | "mini"
+type Size = "large" | "mini";
 const props = defineProps({
   types: {
     type: String as PropType<Type>,
@@ -21,17 +25,27 @@ const props = defineProps({
   },
   round: {
     type: Boolean,
-  }
+  },
+  disabled: {
+    type: Boolean,
+  },
 });
 const className = computed(() => {
   if (props.plain) {
-    return `r-button--plain r-button--plain--${props.types || 'default'} r-button--size-${props.size || 'default'} ${props.round ? 'r-button--round' : ''}`
+    return `r-button--plain r-button--plain--${
+      props.types || "default"
+    } r-button--size-${props.size || "default"} ${
+      props.round ? "r-button--round" : ""
+    } ${props.disabled && "r-button--disabled"}`;
   } else {
-    return `r-button--${(props.types || 'default')} r-button--size-${props.size || 'default'} ${props.round ? 'r-button--round' : ''}`
+    return `r-button--${props.types || "default"} r-button--size-${
+      props.size || "default"
+    } ${props.round ? "r-button--round" : ""} ${
+      props.disabled && "r-button--disabled"
+    }`;
   }
-})
+});
 function add() {
-  
   uni.showToast({ title: "头像不能为空" });
 }
 </script>
@@ -55,9 +69,9 @@ $r-color-default: #9c9c9c;
   }
 
   &--primary {
-    color: #fff;
-    background-color: $r-color-primary;
-    border-color: $r-color-primary;
+    color: #fff !important;
+    background-color: $r-color-primary !important;
+    border-color: $r-color-primary !important;
 
     &:active {
       box-shadow: 2rpx 4rpx 10rpx 0rpx $r-color-primary;
@@ -65,9 +79,9 @@ $r-color-default: #9c9c9c;
   }
 
   &--success {
-    color: #fff;
-    background-color: $r-color-success;
-    border-color: $r-color-success;
+    color: #fff !important;
+    background-color: $r-color-success !important;
+    border-color: $r-color-success !important;
 
     &:active {
       box-shadow: 2rpx 4rpx 10rpx 0rpx $r-color-success;
@@ -75,9 +89,9 @@ $r-color-default: #9c9c9c;
   }
 
   &--warn {
-    color: #fff;
-    background-color: $r-color-warn;
-    border-color: $r-color-warn;
+    color: #fff !important;
+    background-color: $r-color-warn !important;
+    border-color: $r-color-warn !important;
 
     &:active {
       box-shadow: 2rpx 4rpx 10rpx 0rpx $r-color-warn;
@@ -85,9 +99,9 @@ $r-color-default: #9c9c9c;
   }
 
   &--error {
-    color: #fff;
-    background-color: $r-color-error;
-    border-color: $r-color-error;
+    color: #fff !important;
+    background-color: $r-color-error !important;
+    border-color: $r-color-error !important;
 
     &:active {
       box-shadow: 2rpx 4rpx 10rpx 0rpx $r-color-error;
@@ -95,8 +109,8 @@ $r-color-default: #9c9c9c;
   }
 
   &--default {
-    color: $r-color-default;
-    border: 2rpx $r-color-default solid;
+    color: $r-color-default !important;
+    border: 2rpx $r-color-default solid !important;
 
     &:active {
       box-shadow: 2rpx 4rpx 10rpx 0rpx $r-color-default;
@@ -124,24 +138,27 @@ $r-color-default: #9c9c9c;
   &--round {
     border-radius: 40rpx;
   }
+  &--disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
 }
 
 .r-button--plain {
-  background-color: transparent;
+  background-color: transparent !important;
 
   &--primary {
-    color: $r-color-primary;
-    border: 2rpx $r-color-primary solid;
+    color: $r-color-primary !important;
+    border: 2rpx $r-color-primary solid !important;
 
     &:active {
       box-shadow: 2rpx 4rpx 10rpx 0rpx $r-color-primary;
     }
-
   }
 
   &--success {
-    color: $r-color-success;
-    border: 2rpx $r-color-success solid;
+    color: $r-color-success !important;
+    border: 2rpx $r-color-success solid !important;
 
     &:active {
       box-shadow: 2rpx 4rpx 10rpx 0rpx $r-color-success;
@@ -149,8 +166,8 @@ $r-color-default: #9c9c9c;
   }
 
   &--warn {
-    color: $r-color-warn;
-    border: 2rpx $r-color-warn solid;
+    color: $r-color-warn !important;
+    border: 2rpx $r-color-warn solid !important;
 
     &:active {
       box-shadow: 2rpx 4rpx 10rpx 0rpx $r-color-warn;
@@ -158,17 +175,17 @@ $r-color-default: #9c9c9c;
   }
 
   &--error {
-    color: $r-color-error;
-    border: 2rpx $r-color-error solid;
+    color: $r-color-error !important;
+    border: 2rpx $r-color-error solid !important;
 
     &:active {
       box-shadow: 2rpx 4rpx 10rpx 0rpx $r-color-warn;
     }
   }
 
-  // &--default {
-  //   color: $r-color-default ;
-  //   border: 2rpx $r-color-default solid;
-  // }
+  &--disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
 }
 </style>
