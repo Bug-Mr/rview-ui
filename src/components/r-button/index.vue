@@ -1,44 +1,54 @@
 <template>
-  <button class="r-button" :class="className" :disabled="disabled">
+  <button
+    class="r-button"
+    :class="className"
+    :disabled="disabled"
+    :loading="loading"
+    @click="emits('click')"
+  >
     <slot></slot>
   </button>
 </template>
 
 <script lang="ts" setup>
-import { computed, PropType } from "vue";
-type Type = "primary" | "warning" | "success" | "Info";
-type Size = "large" | "mini";
-const props = defineProps({
-  types: {
-    type: String as PropType<Type>,
-  },
-  plain: {
-    type: Boolean,
-  },
-  size: {
-    type: String,
-  },
-  round: {
-    type: Boolean,
-  },
-  disabled: {
-    type: Boolean,
-  },
-});
-const className = computed(() => {
+import { ComputedRef, computed } from "vue";
+import { Emits, Size, Types } from "./type";
+const props = withDefaults(
+  defineProps<{
+    types: Types;
+    plain: false;
+    size: Size;
+    round: false;
+    disabled: false;
+    loading: false;
+  }>(),
+  {
+    types: "default",
+    plain: false,
+    size: "default",
+    round: false,
+    disabled: false,
+    loading: false,
+  }
+);
+
+const emits: Emits = defineEmits();
+
+const className: ComputedRef<string> = computed(() => {
   if (props.plain) {
-    return `r-button--plain r-button--plain--${props.types || "default"
-      } r-button--size-${props.size || "default"} ${props.round ? "r-button--round" : ""
-      } ${props.disabled && "r-button--disabled"}`;
+    return `r-button--plain r-button--plain--${
+      props.types || "default"
+    } r-button--size-${props.size || "default"} ${
+      props.round ? "r-button--round" : ""
+    } ${props.disabled && "r-button--disabled"}`;
   } else {
-    return `r-button--${props.types || "default"} r-button--size-${props.size || "default"
-      } ${props.round ? "r-button--round" : ""} ${props.disabled && "r-button--disabled"
-      }`;
+    return `r-button--${props.types || "default"} r-button--size-${
+      props.size || "default"
+    } ${props.round ? "r-button--round" : ""} ${
+      props.disabled && "r-button--disabled"
+    }`;
   }
 });
-function add() {
-  uni.showToast({ title: "头像不能为空" });
-}
 </script>
 
 <style lang="scss" scoped>

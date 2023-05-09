@@ -19,15 +19,25 @@
   <r-button types="warn" size="mini" round>按 钮</r-button>
   <r-button types="primary" disabled>按 钮</r-button>
   <r-button types="success" disabled @click="onTabItemTap">按 钮</r-button>
-  <!-- disabled -->
+  <r-button
+    types="primary"
+    :loading="state.loading"
+    :disabled="state.loading"
+    @click="onTabItemTap"
+    >按 钮</r-button
+  >
 </template>
 
 <script lang="ts" setup>
 import { reactive } from "vue";
 const state = reactive({
   selected: 1,
+  loading: false,
 });
 function onTabItemTap() {
-  console.log("wwwwwwwww");
+  state.loading = true;
+  setTimeout(() => {
+    state.loading = false;
+  }, 3000);
 }
 </script>
