@@ -30,6 +30,12 @@
       "style": {
         "navigationBarTitleText": "Icon图标"
       }
+    },
+    {
+      "path": "pages/r-layout/index",
+      "style": {
+        "navigationBarTitleText": "栅格布局"
+      }
     }
   ],
   "globalStyle": {
