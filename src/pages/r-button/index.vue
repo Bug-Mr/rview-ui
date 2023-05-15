@@ -19,7 +19,14 @@
   <r-button types="warn" size="mini" round>按 钮</r-button>
   <r-button types="primary" disabled>按 钮</r-button>
   <r-button types="success" disabled @click="onTabItemTap">按 钮</r-button>
-  <r-button types="primary" :loading="state.loading" :disabled="state.loading" @click="onTabItemTap" open-type="chooseAvatar">按 钮</r-button>
+  <r-button
+    types="primary"
+    :loading="state.loading"
+    :disabled="state.loading"
+    @click="onTabItemTap"
+    open-type="chooseAvatar"
+    >按 钮</r-button
+  >
 </template>
 
 <script lang="ts" setup>

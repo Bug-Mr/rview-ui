@@ -1,56 +1,42 @@
 <template>
-  <button class="r-button" :class="className" :disabled="disabled" :loading="loading" @click="emits('click')"
-    :form-type="formType" :open-type="openType">
+  <button
+    class="r-button"
+    :class="className"
+    :disabled="disabled"
+    :loading="loading"
+    @click="emits('click')"
+    :form-type="formType"
+    :open-type="openType"
+  >
     <slot></slot>
   </button>
 </template>
 
 <script lang="ts" setup>
-import { ComputedRef, computed, PropType } from "vue";
-import { Emits } from "./type";
-export type Types = "primary" | "warning" | "success" | "Info" | 'default';
-export type Size = "large" | "mini" | 'default';
-const props = defineProps({
-  types: {
-    type: String as PropType<Types>,
-  },
-  plain: {
-    type: Boolean,
-  },
-  size: {
-    type: String as PropType<Size>,
-  },
-  round: {
-    type: Boolean,
-  },
-  disabled: {
-    type: Boolean
-  },
-  loading: {
-    type: Boolean
-  },
-  formType: {
-    type: String,
-    default: ""
-  },
-  openType: {
-    type: String,
-    default: ""
-  }
-})
+import { ComputedRef, computed } from "vue";
+import { Emits, buttonProps, ButtonProps } from "./type";
+
+// 导入解析props
+const props: ButtonProps = defineProps(buttonProps);
+
+// 导入解析emits
 const emits: Emits = defineEmits();
 
+// 动态计算节点类名
 const className: ComputedRef<string> = computed(() => {
   if (props.plain) {
-    return `r-button--plain r-button--plain--${props.types || "default"
-      } r-button--size-${props.size || "default"} ${props.round ? "r-button--round" : ""
-      } ${props.disabled && "r-button--disabled"}`;
+    return `r-button--plain r-button--plain--${
+      props.types || "default"
+    } r-button--size-${props.size || "default"} ${
+      props.round ? "r-button--round" : ""
+    } ${props.disabled && "r-button--disabled"}`;
   } else {
-    return `r-button--${props.types || "default"} r-button--size-${props.size || "default"
-      } ${props.round ? "r-button--round" : ""} ${props.disabled && "r-button--disabled"
-      }`;
+    return `r-button--${props.types || "default"} r-button--size-${
+      props.size || "default"
+    } ${props.round ? "r-button--round" : ""} ${
+      props.disabled && "r-button--disabled"
+    }`;
   }
-
 });
 </script>
 
