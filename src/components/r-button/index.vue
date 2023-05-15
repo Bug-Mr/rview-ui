@@ -1,13 +1,6 @@
 <template>
-  <button
-    class="r-button"
-    :class="className"
-    :disabled="disabled"
-    :loading="loading"
-    @click="emits('click')"
-    :form-type="formType"
-    :open-type="openType"
-  >
+  <button class="r-button" :class="className" :disabled="disabled" :loading="loading" @click="emits('click')"
+    :form-type="formType" :open-type="openType">
     <slot></slot>
   </button>
 </template>
@@ -25,17 +18,13 @@ const emits: Emits = defineEmits();
 // 动态计算节点类名
 const className: ComputedRef<string> = computed(() => {
   if (props.plain) {
-    return `r-button--plain r-button--plain--${
-      props.types || "default"
-    } r-button--size-${props.size || "default"} ${
-      props.round ? "r-button--round" : ""
-    } ${props.disabled && "r-button--disabled"}`;
+    return `r-button--plain r-button--plain--${props.types || "default"
+      } r-button--size-${props.size || "default"} ${props.round ? "r-button--round" : ""
+      } ${props.disabled && "r-button--disabled"}`;
   } else {
-    return `r-button--${props.types || "default"} r-button--size-${
-      props.size || "default"
-    } ${props.round ? "r-button--round" : ""} ${
-      props.disabled && "r-button--disabled"
-    }`;
+    return `r-button--${props.types || "default"} r-button--size-${props.size || "default"
+      } ${props.round ? "r-button--round" : ""} ${props.disabled && "r-button--disabled"
+      }`;
   }
 });
 </script>
