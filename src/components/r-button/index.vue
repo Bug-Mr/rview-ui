@@ -18,11 +18,11 @@ const emits: Emits = defineEmits();
 // 动态计算节点类名
 const className: ComputedRef<string> = computed(() => {
   if (props.plain) {
-    return `r-button--plain r-button--plain--${props.types || "default"
+    return `r-button--plain r-button--plain--${props.type || "default"
       } r-button--size-${props.size || "default"} ${props.round ? "r-button--round" : ""
       } ${props.disabled && "r-button--disabled"}`;
   } else {
-    return `r-button--${props.types || "default"} r-button--size-${props.size || "default"
+    return `r-button--${props.type || "default"} r-button--size-${props.size || "default"
       } ${props.round ? "r-button--round" : ""} ${props.disabled && "r-button--disabled"
       }`;
   }

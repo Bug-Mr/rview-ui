@@ -2,7 +2,7 @@ import { ExtractPropTypes, PropType } from "vue";
 interface Emits {
   (event?: "click"): void;
 }
-export type Types =
+export type Type =
   | "primary"
   | "warn"
   | "success"
@@ -41,8 +41,8 @@ export type OpenTypes =
   | "watchLater"
   | "openProfile";
 export const buttonProps = {
-  types: {
-    type: String as PropType<Types>,
+  type: {
+    type: String as PropType<Type>,
   },
   plain: Boolean,
   size: {

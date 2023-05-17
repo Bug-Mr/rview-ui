@@ -1,9 +1,10 @@
 <template>
+	<img v-if="isImg" :src="type" alt="" :style="imgStyles" @click="_onClick">
 	<!-- #ifdef APP-NVUE -->
-	<text :style="{ color: color, 'font-size': iconSize }" class="uni-icons" @click="_onClick">{{ unicode }}</text>
+	<text v-else :style="{ color: color, 'font-size': iconSize }" class="uni-icons" @click="_onClick">{{ unicode }}</text>
 	<!-- #endif -->
 	<!-- #ifndef APP-NVUE -->
-	<text :style="{ color: color, 'font-size': iconSize }" class="uni-icons"
+	<text v-else :style="{ color: color, 'font-size': iconSize }" class="uni-icons"
 		:class="['r-icon-' + type, customPrefix, customPrefix ? type : '']" @click="_onClick"></text>
 	<!-- #endif -->
 </template>
@@ -13,7 +14,7 @@ import { computed } from 'vue';
 import icons from './icons';
 const getVal = (val: number | string) => {
 	const reg = /^[0-9]*$/g
-	return (typeof val === 'number' || reg.test(val)) ? val + 'px' : val;
+	return (typeof val === 'number' || reg.test(val)) ? Number(val) * 2 + 'rpx' : val;
 }
 // #ifdef APP-NVUE
 var domModule = weex.requireModule('dom');
@@ -34,11 +35,19 @@ const props = defineProps({
 	},
 	size: {
 		type: [Number, String],
-		default: 16
+		default: 23
 	},
 	customPrefix: {
 		type: String,
 		default: ''
+	},
+	index: {
+		type: [Number, String],
+		default: ''
+	},
+	imgStyle: {
+		type: Object,
+		default: {}
 	}
 })
 
@@ -53,9 +62,21 @@ const unicode = computed(() => {
 const iconSize = computed(() => {
 	return getVal(props.size)
 })
+const isImg = computed(() => {
+	return props.type.indexOf('/') !== -1
+})
+
+const imgStyles: any = computed(() => {
+	return {
+		...props.imgStyle,
+		width: props.imgStyle.width ? `${getVal(props.imgStyle.width)}` : getVal(props.size),
+		height: props.imgStyle.height ? `${getVal(props.imgStyle.height)}` : getVal(props.size),
+
+	}
+})
 const emits = defineEmits(["click"])
 function _onClick() {
-	emits("click")
+	emits("click", props.index)
 }
 
 </script>

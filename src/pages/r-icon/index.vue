@@ -2,7 +2,7 @@
   <view class="icon-box model-box">
     <view v-for="(item, index) in icons.glyphs" :key="index" class="item-box">
       <view class="item">
-        <r-icon :type="item.font_class" color="#606266" size="30"></r-icon>
+        <r-icon :type="item.font_class" color="#606266" size="30" :index="index" @click="add"></r-icon>
         <view class="name" @click="copyName(item.font_class)">{{ item.font_class }}</view>
       </view>
     </view>
@@ -10,16 +10,8 @@
 </template>
 
 <script lang="ts" setup>
-import { computed } from "vue";
+import { computed } from "vue"
 import icons from "../../components/r-icon/icons";
-// const iconsList = computed(() => {
-//   const list = [];
-//   for (let key in icons) {
-//     list.push(key);
-//   }
-//   return list;
-// });
-
 function copyName(value: string) {
   uni.setClipboardData({
     data: value, //要被复制的内容
@@ -33,6 +25,10 @@ function copyName(value: string) {
     },
   });
 }
+function add(val: any) {
+  console.log(val, 'www')
+}
+
 </script>
 
 <style lang="scss" scoped>
