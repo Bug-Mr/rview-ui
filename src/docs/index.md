@@ -11,7 +11,7 @@ hero:
       link: /guide/组件库环境搭建
     - theme: alt
       text: 快速开始
-      link: ./component/button/button
+      link: ./component/r-button/r-button
 
 features:
   - icon: ⚡️

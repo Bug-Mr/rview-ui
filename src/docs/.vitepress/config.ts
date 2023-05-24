@@ -15,7 +15,7 @@ export const config: UserConfig = {
     },
     nav: [
       { text: "指南", link: "/guild/design" },
-      { text: "组件", link: "/component/button/button" },
+      { text: "组件", link: "/component/r-button/r-button" },
     ],
     socialLinks: [
       { icon: "github", link: "https://github.com/Bug-Mr/rview-ui" },
