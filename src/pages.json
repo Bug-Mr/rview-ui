@@ -36,6 +36,12 @@
       "style": {
         "navigationBarTitleText": "栅格布局"
       }
+    },
+    {
+      "path": "pages/r-section/index",
+      "style": {
+        "navigationBarTitleText": "标题栏"
+      }
     }
   ],
   "globalStyle": {

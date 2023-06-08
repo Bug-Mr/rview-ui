@@ -26,7 +26,6 @@
 <script lang="ts" setup>
 import { reactive } from "vue";
 const state = reactive({
-  selected: 1,
   loading: false,
 });
 function onTabItemTap() {
