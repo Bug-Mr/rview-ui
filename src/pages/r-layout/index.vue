@@ -1,5 +1,6 @@
 <template>
   <view class="box">
+    
     <r-row gutter="10">
       <r-col :span="12">
         <view class="item">span:12</view>

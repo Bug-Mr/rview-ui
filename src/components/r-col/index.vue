@@ -1,10 +1,7 @@
 <template>
-  <view
-    :class="'r-col r-col-' + span"
-    :style="{
-      flex: `calc(100% / 24 * ${span} - ${Number(gutter)}rpx)`,
-    }"
-  >
+  <view :class="'r-col r-col-' + span" :style="{
+    flex: `calc(100% / 24 * ${span} - ${Number(gutter)}rpx)`,
+  }">
     <slot></slot>
   </view>
 </template>
@@ -20,7 +17,7 @@ export default {
 </script>
 
 <script lang="ts" setup>
-import { computed, getCurrentInstance, nextTick } from "vue";
+import { computed, getCurrentInstance } from "vue";
 const { proxy }: any = getCurrentInstance();
 const gutter = computed(() => {
   // #ifdef H5
@@ -31,7 +28,7 @@ const gutter = computed(() => {
 defineProps({
   span: {
     type: Number,
-    default: 1,
+    default: 24,
   },
 });
 </script>
