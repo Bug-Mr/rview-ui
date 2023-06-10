@@ -1,6 +1,18 @@
 import { ExtractPropTypes, PropType } from "vue";
 interface Emits {
-  (event?: "click"): void;
+  (e?: "click"): void;
+  (e?: "getphonenumber", event?: any): void;
+  (e?: "getuserinfo", event?: any): void;
+  (e?: "error", event?: any): void;
+  (e?: "opensetting", event?: any): void;
+  (e?: "launchapp", event?: any): void;
+  (e?: "contact", event?: any): void;
+  (e?: "chooseavatar", event?: any): void;
+  (e?: "chooseaddress", event?: any): void;
+  (e?: "chooseinvoicetitle", event?: any): void;
+  (e?: "subscribe", event?: any): void;
+  (e?: "login", event?: any): void;
+  (e?: "im", event?: any): void;
 }
 export type Type =
   | "primary"

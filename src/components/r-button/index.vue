@@ -1,6 +1,12 @@
 <template>
   <button class="r-button" :class="className" :disabled="disabled" :loading="loading" @click="emits('click')"
-    :form-type="formType" :open-type="openType">
+    :form-type="formType" :open-type="openType" @getphonenumber="(v: any) => emits('getphonenumber', v)"
+    @getuserinfo="(v: any) => emits('getuserinfo', v)" @error="(v: any) => emits('error', v)"
+    @opensetting="(v: any) => emits('opensetting', v)" @launchapp="(v: any) => emits('launchapp', v)"
+    @contact="(v: any) => emits('contact', v)" @chooseavatar="(v: any) => emits('chooseavatar', v)"
+    @chooseaddress="(v: any) => emits('chooseaddress', v)"
+    @chooseinvoicetitle="(v: any) => emits('chooseinvoicetitle', v)" @subscribe="(v: any) => emits('subscribe', v)"
+    @login="(v: any) => emits('login', v)" @im="(v: any) => emits('im', v)">
     <slot></slot>
   </button>
 </template>

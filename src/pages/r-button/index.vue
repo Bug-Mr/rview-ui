@@ -20,7 +20,7 @@
   <r-button type="primary" disabled>按 钮</r-button>
   <r-button type="success" disabled @click="onTabItemTap">按 钮</r-button>
   <r-button type="primary" :loading="state.loading" :disabled="state.loading" @click="onTabItemTap"
-    open-type="chooseAvatar">按 钮</r-button>
+    open-type="chooseAvatar" @chooseavatar="chooseavatar">按 钮</r-button>
 </template>
 
 <script lang="ts" setup>
@@ -33,5 +33,9 @@ function onTabItemTap() {
   setTimeout(() => {
     state.loading = false;
   }, 3000);
+}
+
+function chooseavatar(e: any) {
+  console.log(e)
 }
 </script>
